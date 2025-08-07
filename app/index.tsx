@@ -1,6 +1,7 @@
 import { useQuoteStore } from "@/store/useQuoteStore";
 import { useEffect, useState } from "react";
-import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
 import { quotes } from "./data/quotes";
 
 
@@ -51,8 +52,8 @@ export default function Home() {
         />
       </View>
 
-      <View style={{ marginTop: 30, width: '100%', paddingHorizontal: 20 }}>
-        <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>⭐ 즐겨찾기 목록</Text>
+      <Text style={{ marginTop: 30, fontWeight: 'bold', marginBottom: 20 }}>⭐ 즐겨찾기 목록</Text>
+      <ScrollView style={{ width: '100%' }}>
         {favorites.length === 0 ? (
           <Text>아직 즐겨찾기한 명언이 없습니다.</Text>
         ) : (
@@ -69,14 +70,14 @@ export default function Home() {
             )}
           />
         )}
-      </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 20, paddingTop: 80 },
-  quote: { fontSize: 20, marginBottom: 10, textAlign: 'center' },
+  quote: { fontSize: 20, marginVertical: 10, textAlign: 'center' },
   author: { fontSize: 16, fontStyle: 'italic', marginBottom: 10, textAlign: 'center' },
   favoriteItem: { marginBottom: 6, fontSize: 14 },
   favoriteRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 },
